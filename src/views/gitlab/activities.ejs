@@ -1,0 +1,41 @@
+<h1>Activities</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Action name</th>
+      <th>Created at</th>
+      <th>Target title</th>
+      <th>Target type</th>
+    </tr>
+  </thead>
+  <tbody id="activity-list">
+    <% if (activities.length) { %>
+      <%  let count = -1
+      for (const activity of activities) { 
+        count += 1%>
+        <tr data-id="<%= count %>">
+          <td class="text-center text-primary th-lg">
+            <%= activity.actionName %>
+          </td>
+          <td class="w-auto">
+            <%= activity.createdAt %>
+          </td>
+          <td class="title">
+            <%= activity.targetTitle %>
+          </td>
+          <td class="w-auto">
+            <%= activity.targetType %>
+          </td>
+        </tr>
+        <% } %>
+          <% } else { %>
+            <tr>
+              <td colspan="3" class="text-center text-danger">
+                There are no activities to display
+              </td>
+            </tr>
+            <% } %>
+            
+  </tbody>
+</table>
+

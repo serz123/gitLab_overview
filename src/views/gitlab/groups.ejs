@@ -1,0 +1,74 @@
+<h1>Groups: </h1>
+<% if (groupsViewData.groups.length) { %>
+  <% for (group of groupsViewData.groups) { %>
+    <h2>
+      <%= group.name %>
+    </h2>
+    <ul>
+      <li><strong>Link: </strong><a href="<%= group.webUrl %>"><%= group.webUrl %></a></li>
+      <li><strong>Avatar:</strong> 
+        <% if (group.avatarUrl) { %>
+          <img src="<%= group.avatarUrl %>" alt="User Avatar"></li>
+          <% } else { %>
+            No avatar
+            <% } %>
+      <li><strong>Path:</strong> <%= group.path %></li>
+      <li><strong>Projects:</strong></li>
+    </ul>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Project name</th>
+          <th>Project link</th>
+          <th>Project avatar</th>
+          <th>Project path</th>
+          <th>Last commit - date</th>
+          <th>Last commit - author name</th>
+          <th>Last commit - author username</th>
+          <th>Last commit - author avatar</th>
+        </tr>
+      </thead>
+      <tbody id="activity-list">
+        <% if (group.projects.length) { %>
+          <% for (const project of group.projects) { %>
+            <tr>
+              <td class="text-center text-primary th-lg"><%= project.name %></td>
+              <td class="w-auto"><a href="<%= project.webUrl %>"><%= project.webUrl %></a></td>
+              <td class="title">
+                <% if (project.avatarUrl) { %>
+                  <img src="<%= project.avatarUrl %>" alt="Project Avatar">
+                  <% } else { %>
+                    No avatar
+                    <% } %></td>
+              <td class="w-auto"><%= project.path %></td>
+              <td class="w-auto"><%= project.lastCommitDate %></td>
+              <td class="w-auto"><%= project.lastCommitAuthorName %></td>
+              <td class="w-auto"><%= project.lastCommitAuthorUsername %></td>
+              <td class="w-auto">
+                <% if (project.lastCommitAuthorAvatarUrl) { %>
+                <img src="<%= project.lastCommitAuthorAvatarUrl %>" alt="Commit Author Avatar">
+                <% } else { %>
+                  No avatar
+                  <% } %></td>
+            </tr>
+          <% } %>
+        <% } else { %>
+          <tr>
+            <td colspan="8"><p>There are no projects to display</p></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <% if (group.projectHasNextPage) { %>
+      <p><strong>There are more projects but pagination is not implemented yet!</strong></p>
+      <% } %>
+    <hr>
+    <br>
+    <br>
+  <% } %>
+<% } else { %>
+  <p>There are no groups to display</p>
+<% } %>
+<% if (groupsViewData.hasNextPage) { %>
+<p><strong>There are more groups but pagination is not implemented yet!</strong></p>
+<% } %>

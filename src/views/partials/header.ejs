@@ -1,0 +1,28 @@
+<header>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./">
+        <img class="rounded-symbol" alt="logo" width="32" height="32" src="/favicon.ico">
+        1DV027
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="./">Home</a>
+          
+          <%if (locals.user) { %>
+            <a class="nav-link" href="./gitlab/profile">Profile</a>
+            <a class="nav-link" href="./gitlab/activities">Activities</a>
+            <a class="nav-link" href="./gitlab/groups">Groups</a>
+            <a class="nav-link" href="./user/logout">Logout</a>
+
+            <% } else { %>
+          <a class="nav-link" href="./user">Login</a>
+              <% } %>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

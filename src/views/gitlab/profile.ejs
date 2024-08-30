@@ -1,0 +1,13 @@
+<h1>User Profile</h1>
+
+<div class="user-info">
+  <%console.log(userGitlabInfo)%>
+  <img src="<%= userGitlabInfo.avatar_url %>" alt="User Avatar">
+  <ul>
+    <li><strong>Name:</strong> <%= userGitlabInfo.name %></li>
+    <li><strong>Username:</strong> <%= userGitlabInfo.username %></li>
+    <li><strong>User ID:</strong> <%= userGitlabInfo.userid %></li>
+    <li><strong>Email:</strong> <%= userGitlabInfo.email %></li>
+    <li><strong>Last Activity:</strong> <%= userGitlabInfo.lastactivity %></li>
+  </ul>
+</div>
